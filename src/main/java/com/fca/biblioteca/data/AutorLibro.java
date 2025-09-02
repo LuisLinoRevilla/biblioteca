@@ -1,19 +1,30 @@
 package com.fca.biblioteca.data;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "autorLibro")
 public class AutorLibro {
-    private String idAutor;
-    private String idLibro;
 
-    public AutorLibro() {}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idAutorLibro")
+    private Integer id;
 
-    public AutorLibro(String idAutor, String idLibro) {
-        this.idAutor = idAutor;
-        this.idLibro = idLibro;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "idAutor", referencedColumnName = "idAutor")
+    private Autor autor;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "idLibro", referencedColumnName = "idLibro")
+    private Libro libro;
+
+    // Constructores
+    public AutorLibro() {
     }
 
-    public  String getIdAutor() {return idAutor;}
-    public void setIdAutor(String idAutor) {this.idAutor = idAutor;}
-    public String getIdLibro() {return idLibro;}
-    public void setIdLibro(String idLibro) {this.idLibro = idLibro;}
-
+    public AutorLibro(Autor autor, Libro libro) {
+        this.autor = autor;
+        this.libro = libro;
+    }
 }

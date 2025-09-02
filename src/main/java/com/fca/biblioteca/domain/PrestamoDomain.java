@@ -1,4 +1,7 @@
-package com.fca.biblioteca.data;
+package com.fca.biblioteca.domain;
+
+import com.fca.biblioteca.data.Libro;
+import com.fca.biblioteca.data.Persona;
 
 public class PrestamoDomain {
 
