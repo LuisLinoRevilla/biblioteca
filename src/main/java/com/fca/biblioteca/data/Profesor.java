@@ -4,9 +4,8 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "profesor")
-@PrimaryKeyJoinColumn(name = "idPersona") // Hereda PK de Persona
-public class Profesor extends Persona {
-
+public class Profesor {
+    @Id
     @Column(name = "numeroTrabajador", nullable = false, unique = true)
     private String numeroTrabajador;
 
