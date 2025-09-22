@@ -30,7 +30,13 @@ public class LibroController {
     @RequestMapping(value = "/librosNoDisponibles", method = RequestMethod.GET)
     @ResponseBody
     public List<Libro> buscarLibrosNoDisponibles(@RequestParam String titulo, @RequestParam String edicion) {
-        return libroDomain.buscarLibrosDisponibles(titulo, edicion);
+        return libroDomain.buscarLibrosNoDisponibles(titulo, edicion); // La llamada ha sido corregida aquí
+    }
+
+    @RequestMapping(value = "/todosLosLibros", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Libro> buscarTodosLosLibros() {
+        return libroDomain.buscarTodosLosLibros();
     }
 
 }
